@@ -64,6 +64,9 @@ export default async (req) => {
           {
             name: `Qurbonlik sayti — ${type}`,
             
+            pipeline_id: 10923694,
+            status_id: 85906462,
+            
             _embedded: {
               contacts: [
                 {
