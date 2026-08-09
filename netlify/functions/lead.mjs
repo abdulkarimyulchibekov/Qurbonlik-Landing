@@ -1,5 +1,4 @@
 export default async (req) => {
-  // Only accept POST requests
   if (req.method !== "POST") {
     return new Response(
       JSON.stringify({ error: "Method not allowed" }),
@@ -13,17 +12,13 @@ export default async (req) => {
   }
   
   try {
-    const data = await req.json();
+    const { name, phone, type } = await req.json();
     
-    const name = data.name?.trim();
-    const phone = data.phone?.trim();
-    const type = data.type?.trim();
-    
-    // Validate the form
+    // Validate form data
     if (!name || !phone || !type) {
       return new Response(
         JSON.stringify({
-          error: "All fields are required"
+          error: "Name, phone and type are required"
         }),
         {
           status: 400,
@@ -34,27 +29,91 @@ export default async (req) => {
       );
     }
     
+    const token = process.env.AMOCRM_TOKEN;
+    
+    if (!token) {
+      console.error("AMOCRM_TOKEN is missing");
+      
+      return new Response(
+        JSON.stringify({
+          error: "CRM configuration error"
+        }),
+        {
+          status: 500,
+          headers: {
+            "Content-Type": "application/json"
+          }
+        }
+      );
+    }
+    
     /*
-    * We will connect amoCRM here.
-    *
-    * For now, just return the received data.
+    * Create a deal + contact in amoCRM
     */
+    const amoResponse = await fetch(
+      "https://qurbonlikuz.amocrm.ru/api/v4/leads/complex",
+      {
+        method: "POST",
+        
+        headers: {
+          "Authorization": `Bearer ${token}`,
+          "Content-Type": "application/json"
+        },
+        
+        body: JSON.stringify([
+          {
+            name: `Qurbonlik sayti — ${type}`,
+            
+            _embedded: {
+              contacts: [
+                {
+                  name: name,
+                  
+                  custom_fields_values: [
+                    {
+                      field_code: "PHONE",
+                      values: [
+                        {
+                          value: phone,
+                          enum_code: "WORK"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ])
+      }
+    );
     
-    console.log("New website lead:", {
-      name,
-      phone,
-      type
-    });
+    const amoData = await amoResponse.json();
     
+    console.log("amoCRM response:", amoData);
+    
+    if (!amoResponse.ok) {
+      return new Response(
+        JSON.stringify({
+          error: "amoCRM request failed",
+          details: amoData
+        }),
+        {
+          status: amoResponse.status,
+          headers: {
+            "Content-Type": "application/json"
+          }
+        }
+      );
+    }
+    
+    /*
+    * Success
+    */
     return new Response(
       JSON.stringify({
         success: true,
-        message: "Lead received",
-        data: {
-          name,
-          phone,
-          type
-        }
+        message: "Lead successfully sent to amoCRM"
       }),
       {
         status: 200,
@@ -66,11 +125,11 @@ export default async (req) => {
     
   } catch (error) {
     
-    console.error("Function error:", error);
+    console.error("Server error:", error);
     
     return new Response(
       JSON.stringify({
-        error: "Invalid request"
+        error: "Server error"
       }),
       {
         status: 500,
