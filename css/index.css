@@ -428,9 +428,9 @@ select:focus {
 }
 
 .call-btn:hover {
-  background: #ffda5a;
+  background: #ff5a5a;
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(255, 208, 64, .25);
+  box-shadow: 0 8px 20px rgba(255, 64, 64, 0.25);
 }
 
 .call-btn:active {
