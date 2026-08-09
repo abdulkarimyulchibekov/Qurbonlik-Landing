@@ -84,17 +84,19 @@
   margin: 0;
   color: #fff;
   font-family: 'Fraunces';
-  font-size: 32px;
+  font-size: 22px;
   font-weight: 400;
   text-align: center;
-  margin-bottom: 25px;
+  margin-bottom: 45px;
+  line-height: 150%;
+  padding: 5px;
 }
 
 .hero__subtitle {
   margin: 0;
   color: #fff;
   font-family: 'Inter';
-  font-size: 20px;
+  font-size: 14px;
   font-weight: 500;
   margin-bottom: 15px;
 }
@@ -110,15 +112,16 @@
   font-size: 16px;
   margin-bottom: 15px;
   width: 100%;
-  border-color: #A29B92;
-  background-color: #a4a7a890;
+  border-color: transparent;
+  background-color: transparent;
   color: #fff;
   position: relative;
   z-index: 10;
 }
 
 .form__name::placeholder {
-  color: #000;
+  color: #fff;
+  font-size: 14px;
 }
 
 .form__phone {
@@ -128,13 +131,14 @@
   font-size: 16px;
   margin-bottom: 15px;
   width: 100%;
-  border-color: #A29B92;
-  background-color: #a4a7a890;
+  border-color: transparent;
+  background-color: transparent;
   color: #fff;
 }
 
 .form__phone::placeholder {
-  color: #000;
+  color: #fff;
+  font-size: 14px;
 }
 
 .form__subtitle {
@@ -454,12 +458,13 @@ select:focus {
   width: 100%;
   padding: 8px 12px;
   
-  background: rgba(255,255,255,0.9);
+  /* background: rgba(255,255,255,0.9); */
+  background-color: transparent;
   border: 2px solid rgba(0,0,0,0.15);
   border-radius: 15px;
   
-  font-size: 16px;
-  color: #000101;
+  font-size: 14px;
+  color: #fff;
   cursor: pointer;
   
   transition: all .25s ease;
