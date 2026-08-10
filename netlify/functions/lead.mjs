@@ -91,6 +91,15 @@ export default async (req) => {
       }
     );
     
+    // if (amoResponse.ok) {
+    //   document.getElementById("successPopup").classList.add("active");
+      
+    //   form.reset();
+      
+    //   selectedText.textContent = "Qurbonlik turini tanlang:";
+    //   hiddenInput.value = "";
+    // }
+    
     const amoData = await amoResponse.json();
     
     console.log("amoCRM response:", amoData);

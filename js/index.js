@@ -100,3 +100,38 @@ form.addEventListener("submit", async (e) => {
     submitButton.textContent = "Ariza qoldirish";
   }
 });
+
+const phoneInput = document.querySelector(".form__phone");
+
+phoneInput.addEventListener("input", () => {
+  // Keep only digits and +
+  let value = phoneInput.value.replace(/[^\d+]/g, "");
+  
+  // Must start with +998
+  if (!value.startsWith("+998")) {
+    value = "+998";
+  }
+  
+  // Keep +998 + maximum 9 digits
+  value = "+998" + value.slice(4).replace(/\D/g, "").slice(0, 9);
+  
+  phoneInput.value = value;
+});
+
+const successPopup = document.getElementById("successPopup");
+const successPopupClose = document.getElementById("successPopupClose");
+const successPopupButton = document.getElementById("successPopupButton");
+
+successPopupClose.addEventListener("click", () => {
+  successPopup.classList.remove("active");
+});
+
+successPopupButton.addEventListener("click", () => {
+  successPopup.classList.remove("active");
+});
+
+successPopup.addEventListener("click", (e) => {
+  if (e.target === successPopup) {
+    successPopup.classList.remove("active");
+  }
+});
