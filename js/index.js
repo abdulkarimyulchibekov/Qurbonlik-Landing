@@ -77,7 +77,8 @@ form.addEventListener("submit", async (e) => {
     
     console.log("Lead successfully sent:", result);
     
-    alert("Arizangiz muvaffaqiyatli yuborildi!");
+    // alert("Arizangiz muvaffaqiyatli yuborildi!");
+    document.getElementById("successPopup").classList.add("active");
     
     // Clear form
     form.reset();
