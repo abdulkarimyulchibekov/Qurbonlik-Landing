@@ -293,6 +293,7 @@
   color: #000;
   width: 100%;
   text-align: center;
+  margin-bottom: 30px;
 }
 
 .information__subtext {
@@ -310,6 +311,8 @@
 .footer__motto {
   font-family: 'Inter';
   color: #0C0C0B;
+  margin-bottom: 15px;
+  margin-top: 15px;
 }
 
 .footer__contact {
@@ -721,4 +724,136 @@ select:focus {
     opacity: 1;
     transform: scale(1);
   }
+}
+
+/* ============== LANGUAGE SELECT =================== */
+
+.header__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__logo img {
+  display: block;
+  max-width: 100%;
+}
+
+.language-select {
+  position: relative;
+  flex-shrink: 0;
+  border: #000 1.5px solid;
+  border-radius: 5px;
+  padding: 8px 12px;
+}
+
+.language-select__selected {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  
+  border: none;
+  background: transparent;
+  
+  font-size: 15px;
+  font-weight: 500;
+  
+  cursor: pointer;
+  font-family: 'Inter';
+}
+
+.language-select__arrow {
+  transition: transform 0.2s ease;
+}
+
+.language-select.open .language-select__arrow {
+  transform: rotate(180deg);
+}
+
+.language-select__options {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  
+  min-width: 130px;
+  
+  display: none;
+  
+  background: #fff;
+  border-radius: 10px;
+  
+  overflow: hidden;
+  
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+  
+  z-index: 1000;
+}
+
+.language-select.open .language-select__options {
+  display: flex;
+  flex-direction: column;
+}
+
+.language-option {
+  width: 100%;
+  
+  padding: 10px 14px;
+  
+  border: none;
+  background: transparent;
+  
+  text-align: left;
+  
+  font-size: 14px;
+  
+  cursor: pointer;
+  font-family: 'Inter';
+}
+
+.language-option:hover {
+  background: #f2f2f2;
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.instagram__link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  border: #fff 1.5px solid;
+  border-radius: 10px;
+  padding: 8px 12px;
+  background: linear-gradient(
+  45deg,
+  #F58529,
+  #DD2A7B,
+  #8134AF,
+  #515BD4
+  );
+}
+
+.instagram-text {
+  margin-left: 10px;
+  color: #fff;
+  font-family: 'Inter';
+}
+
+.telegram__link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  border: #fff 1.5px solid;
+  border-radius: 10px;
+  padding: 8px 12px;
+  background: #2085b7;
+}
+
+.telegram-text {
+  margin-left: 10px;
+  color: #fff;
+  font-family: 'Inter';
 }
