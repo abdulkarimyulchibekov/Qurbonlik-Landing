@@ -30,7 +30,9 @@
     "pop-up_text_two": "Tez orada siz bilan bog‘lanamiz.",
     "close": "Yopish",
     "pop-up_contact": "Bizga hoziroq aloqaga chiqing",
-    "pop-up_telegram": "Telegramdan aloqaga chiqing"
+    "pop-up_telegram": "Telegramdan aloqaga chiqing",
+    "location": "Lokatsiya",
+    "facebook": "Facebook"
   },
   "ru": {
     "language": "Русский",
@@ -63,7 +65,9 @@
     "pop-up_text_two": "Мы свяжемся с вами в ближайшее время.",
     "close": "Закрыть",
     "pop-up_contact": "Свяжитесь с нами сейчас",
-    "pop-up_telegram": "Свяжитесь с нами в Telegram"
+    "pop-up_telegram": "Свяжитесь с нами в Telegram",
+    "location": "Локация",
+    "facebook": "Facebook"
   },
   "uz-cyrl": {
     "language": "Ўзбекча",
@@ -96,6 +100,8 @@
     "pop-up_text_two": "Тез орада сиз билан боғланамиз.",
     "close": "Ёпиш",
     "pop-up_contact": "Бизга ҳозироқ алоқага чиқинг",
-    "pop-up_telegram": "Телеграмдан алоқага чиқинг"
+    "pop-up_telegram": "Телеграмдан алоқага чиқинг",
+    "location": "Локация",
+    "facebook": "Facebook"
   }
 }
