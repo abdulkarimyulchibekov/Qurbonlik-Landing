@@ -75,9 +75,8 @@ form.addEventListener("submit", async (e) => {
       throw new Error(result.error || "Server error");
     }
     
-    console.log("Lead successfully sent:", result);
-    
-    document.getElementById("successPopup").classList.add("active");
+    // document.getElementById("successPopup").classList.add("active");
+    window.location.href = "/rahmat.html";
     
     // Clear form
     form.reset();
@@ -123,15 +122,16 @@ const successPopupClose = document.getElementById("successPopupClose");
 const successPopupButton = document.getElementById("successPopupButton");
 
 successPopupClose.addEventListener("click", () => {
-  successPopup.classList.remove("active");
+  window.location.href = "/rahmat.html";
+  console.log("hi")
 });
 
 successPopupButton.addEventListener("click", () => {
-  successPopup.classList.remove("active");
+  window.location.href = "/rahmat.html";
 });
 
 successPopup.addEventListener("click", (e) => {
   if (e.target === successPopup) {
-    successPopup.classList.remove("active");
+    window.location.href = "/rahmat.html";
   }
 });

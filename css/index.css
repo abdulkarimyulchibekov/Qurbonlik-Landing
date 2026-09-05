@@ -563,7 +563,6 @@ select:focus {
   inset: 0;
   background: rgba(0, 0, 0, 0.7);
   
-  display: none;
   align-items: center;
   justify-content: center;
   
@@ -624,6 +623,7 @@ select:focus {
 
 .success-popup__close {
   position: absolute;
+  text-decoration: none;
   
   top: 12px;
   right: 16px;
@@ -640,6 +640,8 @@ select:focus {
 .success-popup__button {
   width: 100%;
   font-family: 'Inter';
+  text-decoration: none;
+  display: block;
   
   padding: 13px 20px;
   
